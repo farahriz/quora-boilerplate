@@ -5,3 +5,8 @@ get '/' do
   @name = "Bob Smith"
   erb :"home"
 end
+
+get '/today' do
+	@date = Date.today
+	erb :"students/index"
+end 
