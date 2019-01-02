@@ -1,5 +1,7 @@
 <h2>You have successfully logged in</h2>
 
+<%= "Welcome! Your email is #{@user.email}" %>
+
 <form method="post" action="/logout">
     <input type=submit value="Log Me Out">
 </form>
