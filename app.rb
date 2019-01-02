@@ -8,5 +8,5 @@ end
 
 get '/today' do
 	@date = Date.today
-	erb :"students/index"
+	erb :"test/index"
 end 
