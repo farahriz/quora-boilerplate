@@ -16,10 +16,6 @@ end
 # 	erb :"test/index"
 # end 
 
-get '/users/:id' do
-  # some code here to find the user with the id given and render the profile page containing the user's infomation
-end
-
 
 
 

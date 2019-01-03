@@ -14,11 +14,11 @@ get '/signup' do
 	erb :"signup"
 end
 
-get '/login' do
+get 'sessions/new' do
 	erb :"login"
 end
 
-get '/logout' do
+get 'sessions/delete' do
 	erb :"logout"
 end
 
@@ -27,13 +27,13 @@ post '/signup' do
   	@user = User.new(params[:user])
   	if @user.save
     	@user.save
-    	redirect '/login'
+    	redirect '/sessions/new'
   	else
-  		redirect '/failure'
+  		redirect '/sessions/failure'
   	end
 end  
 
-post '/login' do
+post '/sessions/new' do
   # apply a authentication method to check if a user has entered a valid email and password
 	@user = User.find_by(:email => params[:email])
 
@@ -49,12 +49,12 @@ post '/login' do
 end
 
 
-post '/logout' do
+post '/sessions/delete' do
   # kill a session when a user chooses to logout, for example, assign nil to a session
 	 # session[:user_id] = nil
 	 sign_out
 
   # redirect to the appropriate page
-  	redirect '/logout'
+  	redirect '/sessions/delete'
 
 end
