@@ -1,0 +1,15 @@
+<h2>User Profile</h2>
+
+<h3>User Information</h3>
+
+<% selected_user = User.find(params['id']) %>
+
+ <p><%=  "User ID: #{params['id']}" %></p>
+ <p><%=  "E-mail: #{selected_user.email}" %></p>
+ <p><%=  "User since: #{selected_user.created_at}" %></p>
+
+<% if logged_in?%>
+	<form method="post" action="/logout">
+	    <input type=submit value="Log Me Out">
+	</form>
+<% end%>
