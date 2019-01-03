@@ -12,6 +12,15 @@ get '/users/:id' do
 
 end
 
+get '/users/:id/questions' do
+	@selected_questions = Question.where(:user_id => params[:id])
+	erb :"users/user_index"
+end
+
+get '/myquestions' do
+	erb :"users/my_questions"
+end
+
 # get "users/:id/edit"
 # end
 

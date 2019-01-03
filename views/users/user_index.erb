@@ -1,4 +1,5 @@
-<h2>This is where an index of all questions goes</h2>
+<h2>This is where an index of all questions that the logged in user asked goes</h2>
+
 
 <table>
 	<tr>
@@ -8,7 +9,7 @@
 		<td>Created At</td>
 	</tr>
 
-		<%@questions.each do |q|%>
+		<% @selected_questions.each do |q|%>
 		<% id = q.id%>
 		<% link_id = "/questions/"+id.to_s%>
 		<tr>

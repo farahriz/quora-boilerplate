@@ -39,10 +39,12 @@ end
 
 	end
 
-	# patch '/questions/:id' do
-	# 	@question = Question.find(params[:id])
-	# 	@question.title = params[:title]
-	# 	@question.content = params[:content]
-	# 	@question.save
-	# 	redirect to "/questions/#{@question.id}"
-	# end
+	patch '/questions/:id/edit' do
+		# byebug
+		@question = Question.find(params[:id])
+		@question.update(params[:question])
+		# @question.title = params[:question][:title]
+		# @question.content = params[:content]
+		@question.save
+		redirect to "/questions/#{@question.id}"
+	end
