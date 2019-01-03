@@ -1,15 +1,8 @@
 <h2>Shows one question with the right question id</h2>
 
-
-
- <p>Question ID: <%=  "#{params['id']}" %></p> 
-
-
-<!--
-<% selected_question = Question.find(params['id']) %>
--->
-
  <p>Question ID: <%=  "#{params['id']}" %></p>
  <p>Author ID: <%=  "#{@question.user_id}" %></p>
  <p>Question Title: <%=  "#{@question.title}" %></p>
  <p>Question Content: <%=  "#{@question.content}" %></p>
+
+ <a href="../sessions/success">Take me back</a>

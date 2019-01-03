@@ -1,9 +1,13 @@
 <h2>Form for user to create a new question</h2>
 
+<% user_id = current_user.id %>
+
+
 <form method="post" action="/questions/new" id="question_form">
-    <p>Question title: <input type=text placeholder="Title" name="params[title]"></p>
+    <p>Question title: <input type=text placeholder="Title" name="question[title]"></p>
     <p>Put any details of your question down here:</p>
-    <p><input type=text placeholder="Content" name="params[content]"></p>
+    <p><input type=text placeholder="Content" name="question[content]"></p>
+    <input type="hidden" value=<%= user_id = current_user.id %> name="question[user_id]" />
     <input type=submit value="Submit">
 </form>
 

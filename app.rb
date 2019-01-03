@@ -8,7 +8,7 @@ enable :sessions
 
 get '/' do
   @name = "Bob Smith"
-  @email = current_user.email
+  # @email = current_user.email
   erb :"home"
 end
 

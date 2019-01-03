@@ -2,11 +2,19 @@ get '/questions/new' do
 	erb :"questions/new"
 end
 
+get '/questions/failure' do
+	erb :"error/problem"
+end
+
 post '/questions/new' do
 	# @user = current_user
-	byebug
-	@question = Question.create(:title => params[:title], :content => params[:content], :user_id => 5)
-	redirect to "/questions/#{@question.id}"
+	@question = Question.new(params[:question])
+	if @question.save
+		@question.save
+		redirect to "/questions/#{@question.id}"
+	else
+		redirect to "/questions/failure"
+	end
 end
 
 get '/questions/:id' do
