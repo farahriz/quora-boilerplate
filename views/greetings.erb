@@ -2,6 +2,12 @@
 
 <%= "Welcome! Your email is #{@user.email}" %>
 
+<p>What would you like to do today?</p>
+<a href="/questions/new">Make a new question</a>
+<a href="/questions">Look at all questions</a>
+<a href="">My questions</a>
+
+
 <form method="post" action="/sessions/delete">
     <input type=submit value="Log Me Out">
 </form>

@@ -4,13 +4,13 @@ end
 
 post '/questions/new' do
 	@user = current_user
-	@question = Question.create(:title => params[:title], :content => params[:content], :user_id => @user.id)
+	@question = Question.create(:title => params[:title], :content => params[:content], :user_id => 5)
+	byebug
 	redirect to "/questions/#{@question.id}"
 end
 
 get '/questions/:id' do
 	# => params[:id] returns the value input in the :wildcard path
-	@user = current_user
 	@question = Question.find(params[:id])
     erb :"questions/show"
 end
