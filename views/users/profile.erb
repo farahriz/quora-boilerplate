@@ -7,6 +7,7 @@
  <p><%=  "User ID: #{params['id']}" %></p>
  <p><%=  "E-mail: #{selected_user.email}" %></p>
  <p><%=  "User since: #{selected_user.created_at}" %></p>
+ <a href="<%=selected_user.id%>/questions">View all questions asked by this user</a>
 
 <% if logged_in?%>
 	<form method="post" action="/sessions/delete">

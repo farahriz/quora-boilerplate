@@ -5,5 +5,18 @@
  <p>Question Title: <%=  "#{@question.title}" %></p>
  <p>Question Content: <%=  "#{@question.content}" %></p>
 
- <a href="../sessions/success">Take me back</a>
- <a href="../questions/new">Ask another question</a>
+<%if current_user == @question.user_id%>
+	<div>
+		<a href="<%="#{params['id']}"%>/edit">Edit</a>
+		<a href="<%="#{params['id']}"%>/delete">Delete</a>
+	</div>
+<%end%>
+
+<%if logged_in?%>
+	<div>
+		<a href="../sessions/success">Take me back to user landing</a>
+		<a href="../questions/new">Ask another question</a>
+	</div>
+<%end%>
+
+<div><a href="/questions">Back to all questions</a></div>
