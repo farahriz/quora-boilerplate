@@ -1,11 +1,5 @@
 <h2>This is where the form to edit the questions would go</h2>
 
-<%=@question.title%>
-<%=@question.content%>
-
-<%old_title = @question.title%>
-<%old_content = @question.content%>
-
 <form method="post" action="/questions/<%= @question.id%>/edit">
     <p>Question title: <input type=text name="question[title]" placeholder="<%= @question.title %>"></p>
     <p>Put any details of your question down here:</p>
@@ -14,3 +8,11 @@
     <input id="hidden" type="hidden" name="_method" value="patch">
     <input type=submit value="Submit">
 </form>
+
+<button onclick="goBack()">Go Back</button>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>

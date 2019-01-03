@@ -12,11 +12,11 @@ get '/' do
   erb :"home"
 end
 
+get '/unauthorized' do
+	erb :"no_access"
+end
+
 # get '/today' do
 # 	@date = Date.today
 # 	erb :"test/index"
 # end 
-
-
-
-

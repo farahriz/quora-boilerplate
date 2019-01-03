@@ -7,7 +7,6 @@ get '/questions/failure' do
 end
 
 post '/questions/new' do
-	# @user = current_user
 	@question = Question.new(params[:question])
 	if @question.save
 		@question.save
