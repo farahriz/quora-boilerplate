@@ -1,0 +1,17 @@
+<h2>Form for user to create a new answer</h2>
+
+<form method="post" action="/answer/new" id="answer_form">
+    <p>Question title: <input type=text placeholder="Title" name="answer[title]"></p>
+    <p>Put any details of your answer down here:</p>
+    <p><input type=text placeholder="Content" name="answer[content]"></p>
+    <input type="hidden" value=<%= user_id = current_user.id %> name="answer[user_id]" />
+    <input type=submit value="Submit">
+</form>
+
+<!-- <form method="post" action="/answers/new" id="answer_form">
+    <p>Question title: <input type=text placeholder="Title" name="params[title]"></p>
+    <p>Put any details of your answer down here:</p>
+    <p><textarea name="content" cols="70" rows="10" form="answer_form" name="params[content]"></textarea></p>
+    <input type=submit value="Submit">
+</form>
+ -->

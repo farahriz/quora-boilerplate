@@ -1,0 +1,30 @@
+<h2>This is where an index of all answers goes</h2>
+
+<table>
+	<tr>
+		<td>ID</td>
+		<td>Title</td>
+		<td>Author</td>
+		<td>Created At</td>
+	</tr>
+
+		<%@answers.each do |ans|%>
+		<% id = ans.id%>
+		<% link_id = "/answers/"+id.to_s%>
+		<tr>
+			<td><%= "#{ans.id}" %></td>
+			<td><a href=<%=link_id%>> <%= "#{ans.title}" %></a></td>
+			<td><%= "#{ans.user_id}" %></td>
+			<td><%= "#{ans.created_at}" %></td>
+		</tr>
+		<%end%>
+
+</table>
+
+<button onclick="goBack()">Go Back</button>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
