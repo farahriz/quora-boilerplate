@@ -25,26 +25,33 @@ end
 
 
 
-
-# The ones below here have not been implemented yet
-	get '/questions' do
-		@questions = Question.all
-		erb :"questions/index"
-	end
+get '/questions' do
+	@questions = Question.all
+	erb :"questions/index"
+end
 
 
-	get '/questions/:id/edit' do
-		@question = Question.find(params[:id])
-		erb :"questions/edit"
+get '/questions/:id/edit' do
+	@question = Question.find(params[:id])
+	erb :"questions/edit"
 
-	end
+end
 
-	patch '/questions/:id/edit' do
-		# byebug
-		@question = Question.find(params[:id])
-		@question.update(params[:question])
-		# @question.title = params[:question][:title]
-		# @question.content = params[:content]
-		@question.save
-		redirect to "/questions/#{@question.id}"
-	end
+patch '/questions/:id/edit' do
+	# byebug
+	@question = Question.find(params[:id])
+	@question.update(params[:question])
+	@question.save
+	redirect to "/questions/#{@question.id}"
+end
+
+get '/questions/:id/delete' do
+	@question = Question.find(params[:id])
+	erb :"questions/delete"
+end
+
+delete '/questions/:id/delete' do #delete action
+  @question = Question.find(params[:id])
+  @question.delete
+  redirect to '/questions'
+end

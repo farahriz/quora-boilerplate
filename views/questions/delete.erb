@@ -1,0 +1,11 @@
+<h2>Are you sure you want to delete this post?</h2>
+
+ <p>Question ID: <%=  "#{params['id']}" %></p>
+ <p>Author ID: <%=  "#{@question.user_id}" %></p>
+ <p>Question Title: <%=  "#{@question.title}" %></p>
+ <p>Question Content: <%=  "#{@question.content}" %></p>
+
+<form action="/questions/<%= @question.id %>/delete" method="post">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete">
+</form>

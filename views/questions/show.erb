@@ -5,7 +5,7 @@
  <p>Question Title: <%=  "#{@question.title}" %></p>
  <p>Question Content: <%=  "#{@question.content}" %></p>
 
-<%if current_user == @question.user_id%>
+<%if current_user.id == @question.user_id%>
 	<div>
 		<a href="<%="#{params['id']}"%>/edit">Edit</a>
 		<a href="<%="#{params['id']}"%>/delete">Delete</a>
