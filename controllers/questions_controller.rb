@@ -3,9 +3,9 @@ get '/questions/new' do
 end
 
 post '/questions/new' do
-	@user = current_user
-	@question = Question.create(:title => params[:title], :content => params[:content], :user_id => 5)
+	# @user = current_user
 	byebug
+	@question = Question.create(:title => params[:title], :content => params[:content], :user_id => 5)
 	redirect to "/questions/#{@question.id}"
 end
 

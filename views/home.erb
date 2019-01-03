@@ -1,7 +1,21 @@
 <h1>Quora Clone</h1>
+
 <%= "Welcome #{@name}!" %>
 
-<div>
-	<a href="/signup">Register</a>
-	<a href="/sessions/new">Sign in</a>
-</div>
+<% if !logged_in?%>
+	<div>
+		<a href="/signup">Register</a>
+		<a href="/sessions/new">Sign in</a>
+	</div>
+<% end%>
+
+<% if logged_in?%>
+<%= "User email: #{@email}!" %>
+	<div>
+		<a href="/questions/new">Make a new question</a>
+	</div>
+
+	<form method="post" action="/sessions/delete">
+	    <input type=submit value="Log Me Out">
+	</form>
+<% end%>

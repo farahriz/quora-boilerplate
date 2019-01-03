@@ -1,7 +1,14 @@
 <h2>Login Here</h2>
-<p>This is <em>NOT</em> a user registration page</p>
-<form method="post" action="/sessions/new">
-    <input type=text placeholder="Email" name="email"><br>
-    <input type=password placeholder="Password" name="password"></br>
-    <input type=submit value="Log in">
-</form>
+
+<%if logged_in? %>
+	<p>Hey, partner. You're already logged in. There's nothing for you here.</p>
+	<a href="/sessions/success">Got lost?</a>	
+<% else %>
+	<p>This is <em>NOT</em> a user registration page</p>
+	<form method="post" action="/sessions/new">
+	    <input type=text placeholder="Email" name="email"><br>
+	    <input type=password placeholder="Password" name="password"></br>
+	    <input type=submit value="Log in">
+	</form>
+<%end%>
+

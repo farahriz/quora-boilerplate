@@ -1,7 +1,16 @@
 <h2>Form for user to create a new question</h2>
 
-<form method="post" action="/questions/new">
-    <input type=title placeholder="title" name="params[title]"><br>
-    <input type=content placeholder="content" name="params[content]"></br>
+<form method="post" action="/questions/new" id="question_form">
+    <p>Question title: <input type=text placeholder="Title" name="params[title]"></p>
+    <p>Put any details of your question down here:</p>
+    <p><input type=text placeholder="Content" name="params[content]"></p>
     <input type=submit value="Submit">
 </form>
+
+<!-- <form method="post" action="/questions/new" id="question_form">
+    <p>Question title: <input type=text placeholder="Title" name="params[title]"></p>
+    <p>Put any details of your question down here:</p>
+    <p><textarea name="content" cols="70" rows="10" form="question_form" name="params[content]"></textarea></p>
+    <input type=submit value="Submit">
+</form>
+ -->
