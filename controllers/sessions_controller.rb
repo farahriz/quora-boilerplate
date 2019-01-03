@@ -14,11 +14,11 @@ get '/signup' do
 	erb :"signup"
 end
 
-get 'sessions/new' do
+get '/sessions/new' do
 	erb :"login"
 end
 
-get 'sessions/delete' do
+get '/sessions/delete' do
 	erb :"logout"
 end
 
