@@ -16,7 +16,14 @@
 	<div>
 		<a href="../sessions/success">Take me back to user landing</a>
 		<a href="../questions/new">Ask another question</a>
+		<a href="answers/<%="#{params['id']}"%>">See answers to this question</a>
+		<a href="/answers/new">Answer this question</a>
 	</div>
 <%end%>
 
-<div><a href="/questions">Back to all questions</a></div>
+<div>
+	<ul>
+		<li><a href="/questions">Back to all questions</a></li>
+	</ul>
+	
+</div>

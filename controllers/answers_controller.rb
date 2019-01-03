@@ -1,7 +1,9 @@
+#show the form to make a new answer
 get '/answers/new' do
 	erb :"answers/new"
 end
 
+#if making a new answer fails, throw this error message
 get '/answers/failure' do
 	erb :"error/problem"
 end
@@ -10,26 +12,36 @@ post '/answers/new' do
 	@answer = Answer.new(params[:answer])
 	if @answer.save
 		@answer.save
-		redirect to "/answers/#{@answer.id}"
+		redirect to "/answers/#{answer.question_id}/view/#{@answer.id}" #needs to redirect to the specific answer
 	else
 		redirect to "/answers/failure"
 	end
 end
 
-get '/answers/:id' do
+# Shows all answers for a given question ID
+get '/answers/:question_id' do
 	# => params[:id] returns the value input in the :wildcard path
+	@answers = Answer.where(:question_id => params[:question_id])
+    erb :"answers/index"
+end
+
+# Shows one specific answer
+get '/answers/:question_id/view/:id' do
 	@answer = Answer.find(params[:id])
-    erb :"answers/show"
 end
 
 
 
+
+# Shows all answers for all questions, like a 'recently commented' section
 get '/answers' do
 	@answers = Answer.all
 	erb :"answers/index"
 end
 
 
+
+# Edit one specific answer
 get '/answers/:id/edit' do
 	@answer = Answer.find(params[:id])
 	erb :"answers/edit"
@@ -44,6 +56,9 @@ patch '/answers/:id/edit' do
 	redirect to "/answers/#{@answer.id}"
 end
 
+
+
+# Delete one specific answer
 get '/answers/:id/delete' do
 	@answer = Answer.find(params[:id])
 	erb :"answers/delete"
