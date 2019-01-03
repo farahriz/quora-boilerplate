@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
 	has_secure_password
+	has_many :questions
 
 	validates :email, format: {with: /@.+\...+/}
 	validates :email, uniqueness: true
