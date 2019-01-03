@@ -62,7 +62,9 @@ if Sinatra::Application.development?
 
    database: DB_NAME,
 
-   encoding: 'utf8'
+   encoding: 'utf8',
+
+   pool: 10
 
  )
 
@@ -82,7 +84,9 @@ else
 
    database: DB_NAME,
 
-   encoding: 'utf8'
+   encoding: 'utf8',
+
+   pool: 10
 
  )
 

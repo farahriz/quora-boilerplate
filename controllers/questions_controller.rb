@@ -27,19 +27,19 @@ end
 
 
 # The ones below here have not been implemented yet
-	# get '/questions' do
-	# 	# @questions = Question.all
-	# 	erb :"questions/index"
-	# end
+	get '/questions' do
+		@questions = Question.all
+		erb :"questions/index"
+	end
 
 
-	# get '/questions/:id/edit' do
-	# 	@question = Question.find(params[:id])
-	# 	erb :"questions/edit"
+	get '/questions/:id/edit' do
+		@question = Question.find(params[:id])
+		erb :"questions/edit"
 
-	# end
+	end
 
-	# patch '/articles/:id' do
+	# patch '/questions/:id' do
 	# 	@question = Question.find(params[:id])
 	# 	@question.title = params[:title]
 	# 	@question.content = params[:content]

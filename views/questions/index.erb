@@ -1,1 +1,23 @@
 <h2>This is where a index of all questions goes</h2>
+
+<table>
+	<tr>
+		<td>ID</td>
+		<td>Title</td>
+		<td>Author</td>
+		<td>Created At</td>
+	</tr>
+
+		<%@questions.each do |q|%>
+		<% id = q.id%>
+		<% link_id = "/questions/"+id.to_s%>
+		<tr>
+			<td><%= "#{q.id}" %></td>
+			<td><a href=<%=link_id%>> <%= "#{q.title}" %></a></td>
+			<td><%= "#{q.user_id}" %></td>
+			<td><%= "#{q.created_at}" %></td>
+		</tr>
+		<%end%>
+
+</table>
+
