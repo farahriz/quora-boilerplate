@@ -1,10 +1,16 @@
 <h2>Shows one question with the right question id</h2>
 
+<!-- QUESTION CONTENTS -->
  <p>Question ID: <%=  "#{params['id']}" %></p>
  <p>Author ID: <%=  "#{@question.user_id}" %></p>
  <p>Question Title: <%=  "#{@question.title}" %></p>
  <p>Question Content: <%=  "#{@question.content}" %></p>
 
+
+<!-- GENERATE ANSWER DISPLAY HERE -->
+
+
+<!-- USER NAVIGATION -->
 <%if current_user.id == @question.user_id%>
 	<div>
 		<a href="<%="#{params['id']}"%>/edit">Edit</a>
@@ -16,7 +22,7 @@
 	<div>
 		<a href="../sessions/success">Take me back to user landing</a>
 		<a href="../questions/new">Ask another question</a>
-		<a href="/answers/<%="#{params['id']}"%>">See answers to this question</a>
+		<a href="/answers/<%="#{params['id']}"%>">See answers to this question (details)</a>
 	</div>
 
 	<form method="post" action="/questions/<%= @question.id%>">
