@@ -1,0 +1,30 @@
+<h2>Votes for a given answer</h2>
+
+<table>
+	<tr>
+		<td>Vote ID</td>
+		<td>Answer ID</td>
+		<td>User ID</td>
+		<td>Value</td>
+	</tr>
+
+	<tr>
+		<% @votes.each do |v|  %>
+			
+			<td>
+				<%= "#{v.id}" %>
+			</td>
+			<td>
+				<%= "#{v.reference_id}" %>
+			</td>
+			<td>
+				<%= "#{v.user_id}" %>
+			</td>
+			<td>
+				<%= "#{v.value}" %>
+			</td>
+			
+		<%end%>
+	</tr>
+
+</table>

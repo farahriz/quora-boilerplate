@@ -42,15 +42,32 @@
 			</div>
 
 			<div class="space-down">
-				<p>Author: <%="#{ans.user_id}" %></p>
+				<p>Author: <%="#{ans.user.email}" %></p>
 
 				<div class="space-across">
 					<p>Commented on: <%= "#{ans.created_at}" %></p>
 					<p>Updated at: <%= "#{ans.updated_at}" %><p>
 				</div>
 
-				<div class="vote-block">
-					Voting info goes here
+				<div class="vote-block space-across">
+					<a href="/answer/<%="#{ans.user_id}" %>/votes">View votes</a>
+					<div class="vote-container">
+						<form method="post" action="/votes/new" id="upvote-form">
+							<input type="hidden" value=<%=ans.id%> 	name="vote[reference_id]" />
+							<input type="hidden" value="answer" 				name="vote[type]" />
+							<input type="hidden" value=<%= current_user.id %> 	name="vote[user_id]" />
+							<input type="hidden" value="Up" 					name="vote[value]" />
+
+							<input type="submit" value="Up" class="button button-up" />
+						</form>						
+						<form method="post" action="/votes/new" id="downvote-form">
+							<input type="hidden" value=<%=ans.id%> 	name="vote[reference_id]" />
+							<input type="hidden" value="answer" 				name="vote[type]" />
+							<input type="hidden" value=<%= current_user.id %> 	name="vote[user_id]" />
+							<input type="hidden" value="Down" 						name="vote[value]" />
+							<input type="submit" value="Down" class="button button-down" />
+						</form>
+					</div>
 				</div>
 			</div>	
 

@@ -5,6 +5,31 @@ body {
 	margin: 0 0;
 }
 
+.vote-container > form {
+	float: left; 
+	padding: 5px;
+}
+
+.button {
+  border: none;
+  color: white;
+  padding: 10px;
+/*  padding: 10px 20px;*/
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 3px;
+/*  font-size: 12px;*/
+}
+
+.button-up {
+ 	background-color: #4CAF50; /* Green */
+}
+
+.button-down {
+	background-color: #f44336;
+}
+
 
 .ubercontainer {
 	width: 70%;
@@ -21,6 +46,10 @@ body {
 	border-bottom: 1px solid grey;
 }
 
+.vote-container {
+	width: 200px;
+}
+
 .space-across {
 	display: flex;
 	justify-content: space-between;
@@ -28,8 +57,8 @@ body {
 }
 
 img.avatar{
-	width: 80px;
-	height: 80px;
+	width: 100px;
+	height: 100px;
 }
 
 .avatar-container {
@@ -57,10 +86,15 @@ img.avatar{
 
 .author-info {
 	display: flex;
+	background-color: #dce2ed;
 /*	border: 2px dashed yellow;*/
 
 }
 
 .vote-block {
 	background-color: darkgrey;
+}
+
+.vote-container {
+	display: inline;
 }
