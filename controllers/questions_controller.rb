@@ -19,9 +19,13 @@ end
 get '/questions/:id' do
 	# => params[:id] returns the value input in the :wildcard path
 	@question = Question.find(params[:id])
-    erb :"questions/show"
+    erb :"questions/show" 
 end
 
+post '/questions/:id' do
+	cookies[:last_question_id] = params[:id]
+	redirect '/answers/new'
+end
 
 
 get '/questions' do

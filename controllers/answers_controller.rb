@@ -1,5 +1,6 @@
 #show the form to make a new answer
 get '/answers/new' do
+	@last_question_id = nil || cookies[:last_question_id]
 	erb :"answers/new"
 end
 
