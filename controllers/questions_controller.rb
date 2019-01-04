@@ -33,6 +33,10 @@ get '/questions' do
 	erb :"questions/index"
 end
 
+get '/myquestions' do
+	@questions = Question.where(:user_id => current_user.id)
+	erb :"questions/index"
+end
 
 get '/questions/:id/edit' do
 	@question = Question.find(params[:id])

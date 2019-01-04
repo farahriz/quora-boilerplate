@@ -34,6 +34,12 @@ get '/answers/:question_id/view/:id' do
 	erb :"answers/show"
 end
 
+#Shows all the answers authored by logged in user
+get '/myanswers' do
+	@answers = Answer.where(:user_id => current_user.id)
+    erb :"answers/index"
+end
+
 
 
 
