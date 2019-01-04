@@ -1,11 +1,12 @@
-<h2>Shows one question with the right question id</h2>
+<h2>Shows one answer with the right answer id</h2>
 
- <p>Question ID: <%=  "#{params['id']}" %></p>
- <p>Author ID: <%=  "#{@question.user_id}" %></p>
- <p>Question Title: <%=  "#{@question.title}" %></p>
- <p>Question Content: <%=  "#{@question.content}" %></p>
+<p>Answer ID: <%=  "#{params['id']}" %></p>
+<p>Author ID: <%=  "#{@answer.user_id}" %></p> 
+<p>Answer Title: <%=  "#{@answer.title}" %></p>
+<p>Answer Content: <%=  "#{@answer.contents}" %></p>
+<p>Question ID:<%=  "#{@answer.question_id}" %> </p>
 
-<%if current_user.id == @question.user_id%>
+<%if current_user.id == @answer.user_id%>
 	<div>
 		<a href="<%="#{params['id']}"%>/edit">Edit</a>
 		<a href="<%="#{params['id']}"%>/delete">Delete</a>
@@ -14,12 +15,6 @@
 
 <%if logged_in?%>
 	<div>
-		<a href="../sessions/success">Take me back to user landing</a>
-		<a href="../questions/new">Ask another question</a>
-		<a href="../questions/new">Answer this question</a>
+		<a href="/sessions/success">Take me back to user landing</a>
 	</div>
 <%end%>
-
-
-
-

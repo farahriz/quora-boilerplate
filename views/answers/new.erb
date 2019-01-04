@@ -2,11 +2,12 @@
 
 The question you are trying to answer is <%=@last_question_id%>
 
-<form method="post" action="/answer/new" id="answer_form">
+<form method="post" action="/answers/new" id="answer_form">
     <p>Answer title: <input type=text placeholder="Title" name="answer[title]"></p>
     <p>Put any details of your answer down here:</p>
-    <p><input type=text placeholder="Content" name="answer[content]"></p>
+    <p><input type=text placeholder="Content" name="answer[contents]"></p>
     <input type="hidden" value=<%= current_user.id %> name="answer[user_id]" />
+    <input type="hidden" value=<%= @last_question_id %> name="answer[question_id]" />
     <input type=submit value="Submit">
 </form>
 

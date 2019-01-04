@@ -10,10 +10,11 @@ get '/answers/failure' do
 end
 
 post '/answers/new' do
+	# byebug
 	@answer = Answer.new(params[:answer])
 	if @answer.save
 		@answer.save
-		redirect to "/answers/#{answer.question_id}/view/#{@answer.id}" #needs to redirect to the specific answer
+		redirect to "/answers/#{@answer.question_id}/view/#{@answer.id}" #needs to redirect to the specific answer
 	else
 		redirect to "/answers/failure"
 	end
@@ -29,6 +30,7 @@ end
 # Shows one specific answer
 get '/answers/:question_id/view/:id' do
 	@answer = Answer.find(params[:id])
+	erb :"answers/show"
 end
 
 

@@ -4,7 +4,7 @@
     <p>Question title: <input type=text name="question[title]" value="<%= @question.title %>"></p>
     <p>Put any details of your question down here:</p>
     <p><input type=text  name="question[content]" value="<%= @question.content %>"></p>
-    <input type="hidden" value=<%= user_id = current_user.id %> name="question[user_id]" />
+    <input type="hidden" value=<%= current_user.id %> name="question[user_id]" />
     <input id="hidden" type="hidden" name="_method" value="patch">
     <input type=submit value="Submit">
 </form>
