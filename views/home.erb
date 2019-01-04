@@ -9,7 +9,12 @@
 
 <% if logged_in? %>
 	<div>
-		<a href="/questions/new">Make a new question</a>
+		<ul>
+			<li><a href="/questions/new">Make a new question</a></li>
+			<li><a href="/myquestions">See all my questions</a></li>
+			<li><a href="/myanswers">See all my answers</a></li>
+		</ul>
+		
 	</div>
 
 	<form method="post" action="/sessions/delete">
