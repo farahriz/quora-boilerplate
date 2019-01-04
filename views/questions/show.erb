@@ -16,7 +16,7 @@
 	<div>
 		<a href="../sessions/success">Take me back to user landing</a>
 		<a href="../questions/new">Ask another question</a>
-		<a href="answers/<%="#{params['id']}"%>">See answers to this question</a>
+		<a href="/answers/<%="#{params['id']}"%>">See answers to this question</a>
 	</div>
 
 	<form method="post" action="/questions/<%= @question.id%>">

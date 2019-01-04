@@ -8,8 +8,8 @@
 
 <%if current_user.id == @answer.user_id%>
 	<div>
-		<a href="<%="#{params['id']}"%>/edit">Edit</a>
-		<a href="<%="#{params['id']}"%>/delete">Delete</a>
+		<a href="/answers/<%="#{params['id']}"%>/edit">Edit</a>
+		<a href="/answers/<%="#{params['id']}"%>/delete">Delete</a>
 	</div>
 <%end%>
 

@@ -1,10 +1,11 @@
-<h2>This is where the form to edit the questions would go</h2>
+<h2>This is where the form to edit the answers would go</h2>
 
-<form method="post" action="/questions/<%= @question.id%>/edit">
-    <p>Question title: <input type=text name="question[title]" placeholder="<%= @question.title %>"></p>
-    <p>Put any details of your question down here:</p>
-    <p><input type=text  name="question[content]" placeholder="<%= @question.content %>"></p>
-    <input type="hidden" value=<%= user_id = current_user.id %> name="question[user_id]" />
+<form method="post" action="/answers/<%= @answer.id%>/edit">
+    <p>Question title: <input type=text name="answer[title]" value="<%= @answer.title %>"></p>
+    <p>Put any details of your answer down here:</p>
+    <p><input type=text  name="answer[contents]" value="<%= @answer.contents %>"></p>
+    <input type="hidden" value=<%= current_user.id %> name="answer[user_id]" />
+    <input type="hidden" value=<%= @answer.question_id %> name="answer[question_id]" />
     <input id="hidden" type="hidden" name="_method" value="patch">
     <input type=submit value="Submit">
 </form>

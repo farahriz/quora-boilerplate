@@ -57,11 +57,12 @@ patch '/answers/:id/edit' do
 	@answer = Answer.find(params[:id])
 	@answer.update(params[:answer])
 	@answer.save
-	redirect to "/answers/#{@answer.id}"
+	redirect to "/answers/#{@answer.question_id}/view/#{@answer.id}"
 end
 
 
 
+#NOT YET
 # Delete one specific answer
 get '/answers/:id/delete' do
 	@answer = Answer.find(params[:id])
