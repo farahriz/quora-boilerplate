@@ -19,6 +19,7 @@ end
 get '/questions/:id' do
 	# => params[:id] returns the value input in the :wildcard path
 	@question = Question.find(params[:id])
+	@answers = nil || Answer.where(:question_id => params[:id])
     erb :"questions/show" 
 end
 
@@ -29,12 +30,12 @@ end
 
 
 get '/questions' do
-	@questions = Question.all
+	@questions = Question.all.order("created_at DESC")
 	erb :"questions/index"
 end
 
 get '/myquestions' do
-	@questions = Question.where(:user_id => current_user.id)
+	@questions = Question.where(:user_id => current_user.id).order("created_at DESC")
 	erb :"questions/index"
 end
 
@@ -46,7 +47,7 @@ end
 
 patch '/questions/:id/edit' do
 	# byebug
-	@question = Question.find(params[:id])
+	@question = Question.find(params[:id]).order("created_at DESC")
 	@question.update(params[:question])
 	@question.save
 	redirect to "/questions/#{@question.id}"

@@ -36,7 +36,7 @@ end
 
 #Shows all the answers authored by logged in user
 get '/myanswers' do
-	@answers = Answer.where(:user_id => current_user.id)
+	@answers = Answer.where(:user_id => current_user.id).order("created_at DESC")
     erb :"answers/index"
 end
 
@@ -45,7 +45,7 @@ end
 
 # Shows all answers for all questions, like a 'recently commented' section
 get '/answers' do
-	@answers = Answer.all
+	@answers = Answer.all.order("created_at DESC")
 	erb :"answers/index"
 end
 

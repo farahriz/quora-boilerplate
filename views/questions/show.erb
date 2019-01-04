@@ -5,9 +5,23 @@
  <p>Author ID: <%=  "#{@question.user_id}" %></p>
  <p>Question Title: <%=  "#{@question.title}" %></p>
  <p>Question Content: <%=  "#{@question.content}" %></p>
-
+<p>========================OMMENTS BELOW THIS LINE ========================</p>
 
 <!-- GENERATE ANSWER DISPLAY HERE -->
+		<%@answers.each do |ans|%>
+		<% id = ans.id%>
+		<% link_id = "/answers/#{ans.question_id}/view/"+id.to_s%>
+		
+			<p><a href=<%=link_id%>> <%= "#{ans.title}" %></a></p>
+			<p>Author: <%="#{ans.user_id}" %></p>
+			<p>Commented on: <%= "#{ans.created_at}" %></p>
+			<p>Updated at: <%= "#{ans.updated_at}" %><p>
+			<p>Comment contents:</p>
+			<p><%= "#{ans.contents}" %></p>
+			<p>====================================</p>
+		</tr>
+		<%end%>
+
 
 
 <!-- USER NAVIGATION -->
