@@ -14,6 +14,7 @@ post '/answers/new' do
 	@answer = Answer.new(params[:answer])
 	if @answer.save
 		@answer.save
+		cookies[:last_question_id] = nil #clear cookies
 		redirect to "/answers/#{@answer.question_id}/view/#{@answer.id}" #needs to redirect to the specific answer
 	else
 		redirect to "/answers/failure"

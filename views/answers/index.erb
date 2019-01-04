@@ -10,7 +10,7 @@
 
 		<%@answers.each do |ans|%>
 		<% id = ans.id%>
-		<% link_id = "/answers/"+id.to_s%>
+		<% link_id = "/answers/#{ans.question_id}/view/"+id.to_s%>
 		<tr>
 			<td><%= "#{ans.id}" %></td>
 			<td><a href=<%=link_id%>> <%= "#{ans.title}" %></a></td>
