@@ -1,4 +1,66 @@
 body {
 /*	font-family: 'Open Sans', sans-serif;*/
 	font-family: 'Roboto', sans-serif;
+	background-color: #091f42;
+	margin: 0 0;
+}
+
+
+.ubercontainer {
+	width: 70%;
+	height: 100%;
+	margin: 0 auto;
+	background-color: white;
+	padding: 5px 5px; 
+	overflow: auto;
+/*	border: 5px solid red;
+*/}
+
+.comment-block {
+	border-top: 1px solid grey;
+	border-bottom: 1px solid grey;
+}
+
+.space-across {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+img.avatar{
+	width: 80px;
+	height: 80px;
+}
+
+.avatar-container {
+	width: auto;
+/*	border: 2px dashed red;*/
+}
+
+.space-down {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+}
+
+.space-down p {
+	margin-block-start: 0em;
+	margin-block-end: 0em;
+}
+
+.quick-border {
+/*	border: 2px dashed black;*/
+	width: 100%
+}
+
+.author-info {
+	display: flex;
+/*	border: 2px dashed yellow;*/
+
+}
+
+.vote-block {
+	background-color: darkgrey;
 }

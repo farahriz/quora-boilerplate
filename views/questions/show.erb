@@ -5,26 +5,7 @@
  <p>Author ID: <%=  "#{@question.user_id}" %></p>
  <p>Question Title: <%=  "#{@question.title}" %></p>
  <p>Question Content: <%=  "#{@question.content}" %></p>
-<p>========================OMMENTS BELOW THIS LINE ========================</p>
 
-<!-- GENERATE ANSWER DISPLAY HERE -->
-		<%@answers.each do |ans|%>
-		<% id = ans.id%>
-		<% link_id = "/answers/#{ans.question_id}/view/"+id.to_s%>
-		
-			<p><a href=<%=link_id%>> <%= "#{ans.title}" %></a></p>
-			<p>Author: <%="#{ans.user_id}" %></p>
-			<p>Commented on: <%= "#{ans.created_at}" %></p>
-			<p>Updated at: <%= "#{ans.updated_at}" %><p>
-			<p>Comment contents:</p>
-			<p><%= "#{ans.contents}" %></p>
-			<p>====================================</p>
-		</tr>
-		<%end%>
-
-
-
-<!-- USER NAVIGATION -->
 <%if current_user.id == @question.user_id%>
 	<div>
 		<a href="<%="#{params['id']}"%>/edit">Edit</a>
@@ -32,7 +13,59 @@
 	</div>
 <%end%>
 
+
+<h3><%="#{@answers.length}"%> answers</h3>
+
+<!-- GENERATE ANSWER DISPLAY HERE -->
+<%@answers.each do |ans|%>
+	<% id = ans.id%>
+	<% link_id = "/answers/#{ans.question_id}/view/"+id.to_s%>
+
+	<div class="comment-block">
+		<div class="author-info">
+			<!-- icon -->
+			<div class="avatar-container">
+				<img src="/assets/avatar.png" class="avatar">
+			</div>
+
+			<div class="space-down">
+				<p>Author: <%="#{ans.user_id}" %></p>
+
+				<div class="space-across">
+					<p>Commented on: <%= "#{ans.created_at}" %></p>
+					<p>Updated at: <%= "#{ans.updated_at}" %><p>
+				</div>
+
+				<div class="vote-block">
+					Voting info goes here
+				</div>
+			</div>	
+
+		
+
+		</div>
+
+		<div>
+			<p><a href=<%=link_id%>> <%= "#{ans.title}" %></a></p>
+			<p><%= "#{ans.contents}" %></p>
+
+		</div>
+
+
+
+	</div>
+
+<%end%>
+
+
+
+
+<!-- USER NAVIGATION -->
+
 <%if logged_in?%>
+	<br>
+	<br>
+	<br>
 	<div>
 		<a href="../sessions/success">Take me back to user landing</a>
 		<a href="../questions/new">Ask another question</a>
