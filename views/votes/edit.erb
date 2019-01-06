@@ -1,0 +1,29 @@
+<h2>This is where the form to edit the vote</h2>
+
+<form method="post" action="/votes/<%= @vote.id%>/edit">
+	<p>Topic: <%="#{@vote.answer.title}" %></p>
+	<p>Content: <%="#{@vote.answer.contents}" %></p>
+	<p>Current value: <%="#{@vote.value}" %></p>
+	<select name="vote[value]">
+	  <option value="Up">up</option>
+	  <option value="Down">down</option>
+	</select>
+
+							<input type="hidden" value=<%=@vote.id%> 	name="vote[answer_id]" />
+							<input type="hidden" value=<%= current_user.id %> 	name="vote[user_id]" />
+
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    <input type=submit value="Submit">
+</form>
+
+
+
+
+
+<button onclick="goBack()">Go Back</button>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>

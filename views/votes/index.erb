@@ -6,16 +6,18 @@
 		<td>Answer ID</td>
 		<td>User ID</td>
 		<td>Value</td>
+		<td>Edit      |</td>
+		<td>Delete    |</td>
 	</tr>
 
-	<tr>
+	
 		<% @votes.each do |v|  %>
-			
+		<tr>	
 			<td>
 				<%= "#{v.id}" %>
 			</td>
 			<td>
-				<%= "#{v.reference_id}" %>
+				<%= "#{v.answer_id}" %>
 			</td>
 			<td>
 				<%= "#{v.user_id}" %>
@@ -23,8 +25,14 @@
 			<td>
 				<%= "#{v.value}" %>
 			</td>
-			
+			<td>
+				<a href="votes/<%= "#{v.id}" %>/edit">Edit</a>
+			</td>
+			<td>
+				<a href="votes/<%= "#{v.id}" %>/delete">Delete</a>
+			</td>
+		</tr>	
 		<%end%>
-	</tr>
+	
 
 </table>

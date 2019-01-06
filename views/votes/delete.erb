@@ -1,0 +1,14 @@
+<h2>Are you sure you want to delete this vote?</h2>
+
+<form action="/votes/<%= @vote.id %>/delete" method="post">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="Yeah I'm Sure">
+</form>
+
+<button onclick="goBack()">Go Back</button>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
