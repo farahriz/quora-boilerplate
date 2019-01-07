@@ -11,6 +11,9 @@
 </div>
  <p>Question Content: <%=  "#{@question.content}" %></p>
 
+<button class="btn btn-danger">Hi</button>
+<button class="btn btn-danger">Hi</button>
+<button class="btn btn-danger">Hi</button>
 
 
 <%if logged_in?%>
@@ -56,14 +59,15 @@
 							<input type="hidden" value=<%=ans.id%> 				name="vote[answer_id]" />
 							<input type="hidden" value=<%= current_user.id %> 	name="vote[user_id]" />
 							<input type="hidden" value="Up" 					name="vote[value]" />
+		<!-- 					<button type="submit"><i class="fas fa-chevron-circle-up"></i></button> -->
+							<input type="submit" value="Up" class="btn button-up" />
 
-							<input type="submit" value="Up" class="button button-up" />
 						</form>						
 						<form method="post" action="/votes/new" id="downvote-form">
 							<input type="hidden" value=<%=ans.id%> 	name="vote[answer_id]" />
 							<input type="hidden" value=<%= current_user.id %> 	name="vote[user_id]" />
 							<input type="hidden" value="Down" 					name="vote[value]" />
-							<input type="submit" value="Down" class="button button-down" />
+							<input type="submit" value="Down" class="btn button-down" />
 						</form>
 					</div>
 				</div>

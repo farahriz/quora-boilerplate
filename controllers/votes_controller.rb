@@ -5,11 +5,22 @@ get '/votes' do
 end
 
 
+
+#Shows all the answers authored by logged in user
+get '/myvotes' do
+	@votes = Vote.where(:user_id => current_user.id).order("created_at DESC")
+    erb :"votes/index"
+end
+
+
+
+
 #create a vote
 post '/votes/new' do
 		@vote = Vote.new(params[:vote])
 		if @vote.save
 			@vote.save
+			redirect :"/votes"
 		else
 			p "There was an error"
 		end
